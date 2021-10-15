@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>AAA</category>
+  <title>AAA_ExtractSurfaces</title>
+  <description><![CDATA[Extracts the interior and exterior surfaces from an AAA surface oriented along the z axis.]]></description>
+  <version>0.0.1</version>
+  <license>Slicer</license>
+  <documentation-url> http://school.mech.uwa.edu.au/~grandj/resources.html#Scripts</documentation-url>
+  <contributor>Grand Joldes (ISML at The University of Western Australia)</contributor>
+  <acknowledgements>This work was partially funded by NHMRC grant no. APP1063986.</acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <geometry type="model">
+      <name>AAA_Surface_model</name>
+      <label>AAA surface mesh</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[AAA surface mesh, in .vtp format.]]></description>
+    </geometry>
+    <geometry type="model">
+      <name>bloodSurface</name>
+      <label>Blood Surface</label>
+      <channel>output</channel>
+      <index>1</index>
+      <description><![CDATA[Blood surface, in .vtp format.]]></description>
+    </geometry>
+    <geometry type="model">
+      <name>externalSurface</name>
+      <label>AAA External Surface</label>
+      <channel>output</channel>
+      <index>2</index>
+      <description><![CDATA[AAA external surface, in .vtp format.]]></description>
+    </geometry>
+  </parameters>
+</executable>

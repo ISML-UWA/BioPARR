@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the research paper as below."
+authors:
+  - family-names: Joldes
+    given-names: Grand Roman
+    orcid: "https://orcid.org/0000-0003-0496-5785"
+preferred-citation:
+  authors:
+    - family-names: Joldes
+      given-names: Grand Roman
+      orcid: "https://orcid.org/0000-0003-0496-5785"
+    - family-names: Miller
+      given-names: Karol
+      orcid: "https://orcid.org/0000-0002-6577-2082"
+    - family-names: Wittek
+      given-names: Adam
+      orcid: "https://orcid.org/0000-0001-9780-8361"
+    - family-names: Forsythe
+      given-names: Rachel O.
+    - family-names: Newby
+      given-names: David E.
+    - family-names: Doyle
+      given-names: Barry J.
+      orcid: "https://orcid.org/0000-0003-4923-2796"
+  title: "BioPARR"
+  version: 1.0.0
+  doi: 10.1038/s41598-017-04699-1
+  date-released: 2017-07-05
+  type: article
+
+title: "BioPARR"
+repository-code: "https://github.com/ISML-UWA/BioPARR"

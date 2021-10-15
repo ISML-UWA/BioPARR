@@ -1,0 +1,127 @@
+﻿
+BioPARR (Biomechanics based Prediction of Aneurysm Rupture Risk)
+Copyright (c) 2016, Grand Roman Joldes
+
+This software is distributed under a BSD 3-Clause license.
+
+See LICENSE file for details.
+
+-----------------------------------------------------------------------
+
+Note:
+
+The copyright of most of the files in the "Software" subdirectory is held by
+third parties who allow to distribute this material under a license compatible
+with the one used by this software. Please read the content of the subdirectories for
+specific details on those third-party licenses. 
+
+-----------------------------------------------------------------------
+
+
+The distributed archive contains binary code from third parties that have different
+copyrights.These are included for the convenience of configuring the software or due 
+to slight modifications which make the error treatment in the batch files easier. 
+
+They are:
+
+
+ 1) ACVD:  	Copyright (c) CREATIS-LRMN (Centre de Recherche en Imagerie Medicale)
+
+		Author : Sebastien Valette
+
+
+		This software is governed by the CeCILL-B license under French law and 
+
+		abiding by the rules of distribution of free software. 
+		You can  use, 
+modify and/ or redistribute the software under the terms 
+		of the CeCILL-B 
+license as circulated by CEA, CNRS and INRIA at the 
+		following URL 
+http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html 
+		or in the file LICENSE.txt.
+
+		See also the ACVD web site: https://www.creatis.insa-lyon.fr/site/en/acvd.html
+		for more information.
+
+ 2) GMSH:  	Gmsh is copyright (C) 1997-2015 C. Geuzaine and J.-F. Remacle, and is
+
+		distributed under the terms of the GNU General Public License, Version 
+		2 or 
+later, with an exception to allow for easier linking with external
+		
+libraries. See LICENSE.txt and CREDITS.txt for more information.
+
+		The distributed version of GMSH has slight modifications of the source
+		code. The modified source code is included with the distribution. The 
+		binary has been obtained by linking with the included BLAS and 
+		LAPACK libraries, downloaded from 
+		http://ylzhao.blogspot.com.au/2013/10/blas-lapack-precompiled-binaries-for.html
+
+ 3) BLAS:         From www.netlib.org/blas :
+
+    FAQ: The reference BLAS is a freely-available software package.
+    It is available from netlib via anonymous ftp and the World Wide Web.
+    Thus, it can be included in commercial software packages (and has been).
+    We only ask that proper credit be given to the authors.
+
+
+    LAPACK:   	Copyright (c) 1992-2013 The University of Tennessee and The University
+                        of Tennessee Research Foundation.  All rights reserved.
+		Copyright (c) 2000-2013 The University of California Berkeley. All
+                        rights reserved.
+		Copyright (c) 2006-2013 The University of Colorado Denver.  All rights
+                        reserved.
+
+    
+
+ 4) VTK 	Portions of the code are linked against libraries from the Visualization 
+		Toolkit (VTK), which are covered under the VTK copyright. The VTK 
+		copyright is as follows:
+
+Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+ * Neither name of Ken Martin, Will Schroeder, or Bill Lorensen nor the names
+   of any contributors may be used to endorse or promote products derived
+   from this software without specific prior written permission.
+
+ * Modified source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS IS''
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+See also the VTK web site: http://www.vtk.org for more information.
+
+
+
+
+5) ITK 		Copyright 1999-2011 Insight Software Consortium
+	
+	Portions of the code are linked against libraries from the Insight 
+	Segmentation and Registration Toolkit (ITK), which are 
+	covered by an Apache 2.0 License. 
+		
+	See LICENSE_ITK and NOTICE_ITK files for details.
+	See also the ITK web site: http://www.itk.org for more information.
+
+

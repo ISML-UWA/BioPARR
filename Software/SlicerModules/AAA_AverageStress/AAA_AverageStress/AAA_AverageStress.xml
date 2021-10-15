@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>AAA</category>
+  <title>AAA_AverageStress</title>
+  <description><![CDATA[Averages stress values across the AAA wall.]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://school.mech.uwa.edu.au/~grandj/resources.html#Scripts</documentation-url>
+  <license>Slicer</license>
+  <contributor>Grand Joldes (ISML at The University of Western Australia)</contributor>
+  <acknowledgements>This work was partially funded by NHMRC grant no. APP1063986.</acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <geometry type="model">
+      <name>stressMesh</name>
+      <label>Mesh with stress values</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[Mesh of AAA with stress values.]]></description>
+    </geometry>
+    <geometry type="model">
+      <name>stressSurface</name>
+      <label>Stress Surface Output</label>
+      <channel>output</channel>
+      <index>1</index>
+      <description><![CDATA[AAA Wall surface Output file with stress values mapped to it]]></description>
+    </geometry>
+    <integer>
+      <name>iNumSegments</name>
+      <flag>n</flag>
+      <longflag>numSegments</longflag>
+      <description>The number of segments used for integration.</description>
+      <label>Number of segments across thickness</label>
+      <default>4</default>
+      <constraints>
+        <minimum>1</minimum>
+        <maximum>20</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+  </parameters>
+</executable>

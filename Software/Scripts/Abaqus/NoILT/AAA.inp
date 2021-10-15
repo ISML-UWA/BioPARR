@@ -1,0 +1,49 @@
+**
+** PARTS
+**
+*INCLUDE, INPUT=Wall.inp
+**
+** ASSEMBLY
+**
+*Assembly, name=Assembly
+**
+*Instance, name=Wall1, part=Wall
+*End Instance
+*End Assembly
+** 
+** MATERIALS
+** 
+*Material, name=Wall
+*Elastic
+ 100000, 0.49
+** 
+** STEP: Pressure
+** 
+*Step, name=Pressure, nlgeom=NO
+*Static
+1, 1., 1, 1.
+** 
+** BOUNDARY CONDITIONS
+** 
+** Name: Fix_side Type: Symmetry/Antisymmetry/Encastre
+*Boundary
+Wall1.Upper_cap, ENCASTRE 
+*Boundary
+Wall1.Lower_cap, ENCASTRE 
+** 
+** LOADS
+** 
+** Name: Pressure   Type: Pressure
+*Dsload
+Wall1.InteriorS, P, 16e-03
+** 
+** OUTPUT REQUESTS
+** 
+*Restart, write, frequency=0
+*Output, field
+*Node Output
+U,
+*Element Output, directions=YES
+E,EE,S
+*Output, history, variable=PRESELECT
+*End Step

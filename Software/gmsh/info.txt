@@ -1,0 +1,3 @@
+The BLAS and LAPACK precompiled libraries, used for compiling GMSH, were downloaded from
+http://ylzhao.blogspot.com.au/2013/10/blas-lapack-precompiled-binaries-for.html
+

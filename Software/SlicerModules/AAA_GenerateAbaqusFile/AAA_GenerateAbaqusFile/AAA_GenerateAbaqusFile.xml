@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>AAA</category>
+  <title>AAA_GenerateAbaqusFile</title>
+  <description><![CDATA[Generates an Abaqus file containing the geometry for FEM analysis.]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://school.mech.uwa.edu.au/~grandj/resources.html#Scripts</documentation-url>
+  <license>Slicer</license>
+  <contributor>Grand Joldes (ISML at The University of Western Australia)</contributor>
+  <acknowledgements>This work was partially funded by NHMRC grant no. APP1063986.</acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <file>
+      <name>meshFile</name> 
+      <channel>input</channel>
+      <index>0</index>
+      <label>Mesh file</label>
+      <description><![CDATA[A mesh discretising the geometry, of type .vtk.]]></description>
+      <default>WallSurface.vtk</default>
+    </file>
+    <geometry type="model">
+      <name>inSurface</name>
+      <label>Surface split into regions</label>
+      <channel>input</channel>
+      <index>1</index>
+      <description><![CDATA[AAA exterior surface split into regions.]]></description>
+    </geometry>
+    <file>
+      <name>outputFile</name>
+      <channel>output</channel>
+      <flag>o</flag>
+      <label>Output file</label>
+      <description><![CDATA[Output file containing part mesh for Abaqus, of type .inp.]]></description>
+      <default>Wall.inp</default>
+    </file>
+    <boolean>
+      <name>boHybrid</name>
+      <longflag>hybrid</longflag>
+      <label>Generate hybrid elements</label>
+      <description><![CDATA[Set if hybrid elements wanted.]]></description>
+    </boolean>
+    <boolean>
+      <name>boQuadratic</name>
+      <longflag>quad</longflag>
+      <label>Generate quadratic elements</label>
+      <description><![CDATA[Set if quadratic elements wanted.]]></description>
+    </boolean>
+  </parameters>
+</executable>

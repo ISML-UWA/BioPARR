@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>AAA</category>
+  <title>AAA_ComputeRPI</title>
+  <description><![CDATA[Computes the Rupture Potential Index (RPI) for a AAA as the ratio between the stress in the AAA wall and the AAA wall strength. The wall strength is computed based on the formula by Vande Geest et. all 2006, Annals of Biomedical Engineering, 34(7), with the diameter of the infrarenal aorta (needed in the computation of NORD) calculated in a plane normal to Oz at 1 mm below the top of the segmented AAA.]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://school.mech.uwa.edu.au/~grandj/resources.html#Scripts</documentation-url>
+  <license>Slicer</license>
+  <contributor>Grand Joldes (ISML at The University of Western Australia)</contributor>
+  <acknowledgements>This work was partially funded by NHMRC grant no. APP1063986.</acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <geometry type="model">
+      <name>wallAAA</name>
+      <label>AAA wall</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[AAA wall with stress information.]]></description>
+    </geometry>
+    <geometry type="model">
+      <name>ILTSurface</name>
+      <label>ILT Surface</label>
+      <channel>input</channel>
+      <index>1</index>
+      <description><![CDATA[ILT surface with thickness information.]]></description>
+    </geometry>
+    <geometry type="model">
+      <name>AAASurface</name>
+      <label>AAA Surface Output</label>
+      <channel>output</channel>
+      <index>2</index>
+      <description><![CDATA[AAA Wall surface Output file, containing computed RPI.]]></description>
+    </geometry>
+  </parameters>
+</executable>

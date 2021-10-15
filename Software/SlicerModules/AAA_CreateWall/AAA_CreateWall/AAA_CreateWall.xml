@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>AAA</category>
+  <title>AAA_CreateWall</title>
+  <description><![CDATA[Creates the AAA and ILT volumes (as closed surfaces) using thickness data read from Slicer adnotation files. If the blood surface is the same as the external surface, the ILT volume will not be created. Thickness information is added to the output surfaces, and a sizing file to be used for meshing is generated. Output surfaces are created in several fromats (vtp, stl, msh).]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://school.mech.uwa.edu.au/~grandj/resources.html#Scripts</documentation-url>
+  <license>Slicer</license>
+  <contributor>Grand Joldes (ISML at The University of Western Australia)</contributor>
+  <acknowledgements>This work was partially funded by NHMRC grant no. APP1063986.</acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <geometry type="model">
+      <name>exteriorSurface</name>
+      <label>Exterior Surface</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[Exterior surface of AAA.]]></description>
+    </geometry>
+    <geometry type="model">
+      <name>bloodSurface</name>
+      <label>Blood Surface</label>
+      <channel>input</channel>
+      <index>1</index>
+      <description><![CDATA[Blood surface of AAA (internal ILT surface).]]></description>
+    </geometry>
+    <directory>
+      <name>dirMeasurements</name>
+      <label>Directory containing adnotation files</label>
+      <channel>input</channel>
+      <index>2</index>
+      <description><![CDATA[Directory containing adnotation files with measurement data]]></description>
+    </directory>
+    <geometry type="model">
+      <name>WallSurface</name>
+      <label>Wall Surface Output</label>
+      <channel>output</channel>
+      <index>3</index>
+      <description><![CDATA[AAA Wall surface Output file]]></description>
+    </geometry>
+    <geometry type="model">
+      <name>ILTSurface</name>
+      <label>ILT Surface Output</label>
+      <channel>output</channel>
+      <index>4</index>
+      <description><![CDATA[ILT surface Output file]]></description>
+    </geometry>
+    <directory>
+      <name>dirOutputs</name>
+      <label>Directory for output surface files</label>
+      <channel>output</channel>
+      <index>5</index>
+      <description><![CDATA[Directory for output STL and MSH files containing AAA surfaces.]]></description>
+    </directory>
+    <integer>
+      <name>iNumSmoothingIterations</name>
+      <flag>n</flag>
+      <longflag>numIterations</longflag>
+      <description>The number of smoothing iterations to perform after interpolation.</description>
+      <label>Number of smoothing iterations</label>
+      <default>10</default>
+      <constraints>
+        <minimum>1</minimum>
+        <maximum>100</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+    <integer>
+      <name>iSmoothingTreshold</name>
+      <flag>t</flag>
+      <longflag>treshold</longflag>
+      <description>The number of triangle layers around measurement points where smoothing is prevented.</description>
+      <label>Smoothing treshold</label>
+      <default>1</default>
+      <constraints>
+        <minimum>1</minimum>
+        <maximum>100</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+    <double>
+      <name>dmin_ILT_thickness</name>
+      <longflag>minILT</longflag>
+      <flag>m</flag>
+      <label>ILT minimum thickness</label>
+      <description><![CDATA[Minimum thickness of the ILT layer.]]></description>
+      <default>1</default>
+      <constraints>
+        <minimum>1</minimum>
+        <maximum>5</maximum>
+        <step>0.5</step>
+      </constraints>
+    </double>
+    <integer>
+      <name>wallNumLayers</name>
+      <longflag>wallNL</longflag>
+      <flag>w</flag>
+      <label>Number of layers in AAA wall mesh</label>
+      <description><![CDATA[Number of layers desired in the AAA wall mesh.]]></description>
+      <default>2</default>
+      <constraints>
+        <minimum>1</minimum>
+        <maximum>10</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+    <integer>
+      <name>ILTNumLayers</name>
+      <flag>i</flag>
+      <longflag>iltNL</longflag>
+      <description><![CDATA[Number of layers desired in the ILT wall mesh.]]></description>
+      <label>Number of layers in ILT mesh</label>
+      <default>2</default>
+      <constraints>
+        <minimum>1</minimum>
+        <maximum>10</maximum>
+        <step>1</step>
+      </constraints>
+    </integer>
+  </parameters>
+</executable>
