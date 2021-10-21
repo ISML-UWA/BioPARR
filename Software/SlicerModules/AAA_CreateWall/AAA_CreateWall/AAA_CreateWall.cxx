@@ -301,12 +301,12 @@ void vReadMeasurementsFromFile(const char *pcFileName, vtkSmartPointer<vtkDouble
 	while (pl)
 	{
 
-		if (_strnicmp(pl, "point", 5) == 0)
+		if (strncmp(pl, "point", 5) == 0)
 		{
 			int n = sscanf(pl, "point|%f|%f|%f|", &x1[0], &x1[1], &x1[2]);
 			if (n != 3) return;
 			pl = fgets(line, 512, pf);
-			if (_strnicmp(pl, "point", 5) == 0)
+			if (strncmp(pl, "point", 5) == 0)
 			{
 				n = sscanf(pl, "point|%f|%f|%f|", &x2[0], &x2[1], &x2[2]);
 				if (n != 3) {
@@ -484,7 +484,7 @@ int main( int argc, char * argv[] )
 				{
 					// check file extension
 					char *dot = strrchr(file.name, '.');
-					if ((NULL != dot) && (_strnicmp(dot, ".acsv", 5) == 0))
+					if ((NULL != dot) && (strncmp(dot, ".acsv", 5) == 0))
 					{
 						// read measurements
 						vReadMeasurementsFromFile(file.path, aP1, aP2);
