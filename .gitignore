@@ -1,0 +1,21 @@
+# gitignore
+
+# Build artifact files
+*.cmake*
+*.make
+Makefile
+*.bin
+*.ini
+*.tcl
+*CMakeCache.txt
+*.s4ext
+*export.h
+
+# Slicer build artifacts
+*CLP.h
+*SlicerWith*
+
+# Build artifact folders
+*CMakeFiles
+*lib
+*Testing
