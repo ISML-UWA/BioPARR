@@ -47,8 +47,8 @@ if (debug == 1):
     print("Output: %s \n" % output)
     print("Error: %s \n" % error)
 else:
-  process = subprocess.Popen(args)
-  process.wait()
+    process = subprocess.Popen(args)
+    process.wait()
 
 if (process.returncode != 0):
     print("\nError registering MRI to CT!")
