@@ -17,7 +17,7 @@ The steps to compile your own binaries for the Slicer extensions are as follows:
 1.  Finish building Slicer according [the instructions](https://slicer.readthedocs.io/en/latest/developer_guide/build_instructions/index.html).
 1.  Change directory to the directory containing the extension you want to build. For example:
     ```
-        cd path/to/BioPARR/Software/SlicerModules/AAA_AverageStress
+    cd path/to/BioPARR/Software/SlicerModules/AAA_AverageStress
     ```
 1.  Run
     ```
