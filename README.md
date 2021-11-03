@@ -1,5 +1,7 @@
 # BioPARR
 
+[![](https://img.shields.io/badge/Documentation-blue.svg)](https://isml-uwa.github.io/BioPARR/)
+
 BioPARR (Biomechanics based Prediction of Aneurysm Rupture Risk) is a software system that facilitates the analysis of
 abdominal aortic aneurisms (AAA) and evaluation of rupture risk using a finite element analysis based approach.
 
