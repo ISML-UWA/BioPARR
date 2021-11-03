@@ -44,3 +44,7 @@ The steps to compile your own binaries for the Slicer extensions are as follows:
     make
     ```
 1. Binaries for this extension should now be available.
+
+## Tutorials
+
+Tutorials describing the different steps of the analysis can be found [here](https://bioparr.mech.uwa.edu.au/#tutorials).
