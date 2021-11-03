@@ -1,5 +1,24 @@
 # BioPARR Documentation
 
+## Installation
+
+### Dependencies
+The following programs must be installed to run the BioPARR suite:
+- [3D Slicer](https://download.slicer.org/) (tested with 4.4.0)
+- [Paraview](https://www.paraview.org/download/) (tested with version 4.3.1)
+- [Abaqus](https://www.3ds.com/products-services/simulia/products/abaqus/) (tested with version 6.14)
+
+These programs have been shipped with the BioPARR binaries but your local version could also be used:
+- [Gmsh](https://gmsh.info/#Download) (tested with 2.11.0)
+- [ACVD](https://github.com/valette/ACVD/)
+
+### Installation procedure
+
+1.  Install the required dependencies.
+1.  Clone the [BioPARR GitHub repository](https://github.com/ISML-UWA/BioPARR) or download the [precompiled binaries](https://bioparr.mech.uwa.edu.au/download.php?fid=19) for Windows.
+1.  If using the source code, compile the binaries by following the [compilation instructions](https://isml-uwa.github.io/BioPARR#compilation).
+1.  Edit the `AAA_Configure` file and set up the paths to 3D Slicer and Paraview based on your installation.
+
 ## Compilation
 
 The steps to compile your own binaries for the Slicer extensions are as follows:
