@@ -56,13 +56,11 @@ print("Creating AAA wall ...")
 os.chdir("1_Segmentation_CT")
 if not Path("CT_wall.vtp").exists():
     if not Path("CT_cropped.nrrd").exists():
-        print()
-        #raise FileNotFoundError(
-        #    "Please crop the CT volume and save it as 1_Segmentation_CT/CT_cropped.nrrd!")
+        raise FileNotFoundError(
+            "Please crop the CT volume and save it as 1_Segmentation_CT/CT_cropped.nrrd!")
     if not Path("CT_AAA_label.nrrd").exists():
-        print()
-        #raise FileNotFoundError(
-        #    "Please segment the AAA from CT and save label as 1_Segmentation_CT/CT_AAA_label.nrrd!")
+        raise FileNotFoundError(
+            "Please segment the AAA from CT and save label as 1_Segmentation_CT/CT_AAA_label.nrrd!")
     if not Path("CT_blood_label.nrrd").exists():
         warnings.warn("""
             No blood label found in 1_Segmentation_CT/CT_blood_label.nrrd!
@@ -71,20 +69,20 @@ if not Path("CT_wall.vtp").exists():
         # if input("Do you want to continue? "):
         #     raise FileNotFoundError("No blood label found.")
 
-    os.chdir("..")
     extract_wall_path = os.environ["SCRIPTS_PATH"] / Path("ExtractWall.py")
     subprocess.call([os.environ["SLICER_PATH"],
                      "--python-script", extract_wall_path, "."])
 
-    if not Path("1_Segmentation_CT/CT_wall.vtp").exists():
+    if not Path("CT_wall.vtp").exists():
         raise Exception(
             "Error extracting AAA Wall. Check script ExtractWall.py!")
 else:
-    os.chdir("..")
     print("Skipped! - 1_Segmentation_CT/CT_wall.vtp already exists")
 
 if AAA_REMOVE_INTERMEDIATE_RESULTS:
-    os.remove("1_Segmentation_CT/CT_Wall_label.nrrd")
+    os.remove("CT_Wall_label.nrrd")
+
+os.chdir("..")
 
 print("Registering MRI to CT ...")
 os.chdir("2_Segmentation_MRI")
