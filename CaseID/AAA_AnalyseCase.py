@@ -11,6 +11,7 @@ import shutil
 from pathlib import Path
 import runpy
 import warnings
+import glob
 
 AAA_REMOVE_INTERMEDIATE_RESULTS = True
 AAA_ANALYSE_VAR_THICKNESS = True
@@ -129,20 +130,22 @@ if not Path("3_Thickness/M*.acsv").exists():
 print("Extracting surfaces ...")
 os.chdir("4_Geometry")
 if not Path("Exterior.vtp").exists():
-    runpy.run_path("AAA_Extract_surfaces.py")
+    path_extract_surfaces = Path(
+        os.environ["SCRIPTS_PATH"], "AAA_Extract_surfaces.py")
+    runpy.run_path(path_extract_surfaces)
 
     if not Path("Exterior.vtp").exists():
         raise Exception(
-            "Error extracting surfaces. Check script AAA_Extract_surfaces.bat!")
+            "Error extracting surfaces. Check script AAA_Extract_surfaces.py!")
     print("Done!")
 else:
     print("Skipped! - ./4_Geometry/Exterior.vtp already exists")
 
 if AAA_REMOVE_INTERMEDIATE_RESULTS:
-    to_del = Path(".").glob("*.stl")
-    to_del.append(Path(".").glob("*0.vtp"))
-    to_del.append(Path(".").glob("*.ply"))
-
+    to_del = glob.glob("./*.stl")
+    to_del = to_del + glob.glob("./*0.vtp")
+    to_del = to_del + glob.glob("./*.ply")
+    
     for file in to_del:
         os.remove(file)
 
