@@ -5,7 +5,7 @@
 from paraview.simple import *
 
 # create a new 'PLY Reader'
-Exteriorply = PLYReader(FileName='simplification.ply')
+Exteriorply = PLYReader(FileNames='simplification.ply')
 
 # create a new 'Smooth'
 smooth1 = Smooth(Input=Exteriorply)
@@ -17,7 +17,7 @@ smooth1.NumberofIterations = 100
 SaveData('Exterior.vtp', proxy=smooth1, CompressorType='ZLib')
 
 # create a new 'PLY Reader'
-bloodply = PLYReader(FileName='simplification1.ply')
+bloodply = PLYReader(FileNames='simplification1.ply')
 
 # create a new 'Smooth'
 smooth2 = Smooth(Input=bloodply)
