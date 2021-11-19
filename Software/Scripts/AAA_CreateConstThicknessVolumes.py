@@ -18,7 +18,7 @@ if Path("../4_Geometry/blood.vtp").exists():
                      THICKNESS_DIR,
                      Path("./WallSurface.vtp"),
                      Path("./ILTSurface.vtp"),
-                     Path("."), "-n 20"])
+                     Path("."), "-n", "20"])
 else:
     subprocess.call([os.environ["AAA_CREATE_WALL_PATH"],
                      Path("../4_Geometry/Exterior.vtp"),
@@ -26,7 +26,7 @@ else:
                      THICKNESS_DIR,
                      Path("./WallSurface.vtp"),
                      Path("./ILTSurface.vtp"),
-                     Path("."), "-n 20"])
+                     Path("."), "-n", "20"])
 
 # TODO: Raise exception if above is unsuccessful
 
