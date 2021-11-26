@@ -15,7 +15,8 @@ print("Surface meshing ...")
 if Path("../AAA_Wall_External.stl").exists():
     if not Path("extSurf.stl").exists():
         f = open("Surf.geo", "w")
-        f.write("Merge \"%s\";\n" % Path("../AAA_Wall_External.stl"))
+        f.write("Merge \"%s\";\n" %
+                str(Path("../AAA_Wall_External.stl").resolve()))
         f.close()
         subprocess.call([os.environ["GMSH_PATH"],
                          Path(os.environ["SCRIPTS_PATH"], "Mesh_surf.geo"),
@@ -26,7 +27,8 @@ if Path("../AAA_Wall_External.stl").exists():
 if Path("../AAA_Wall_Internal.stl").exists():
     if not Path("intSurf.stl").exists():
         f = open("Surf.geo", "w")
-        f.write("Merge \"%s\";\n" % Path("../AAA_ILT_External.stl"))
+        f.write("Merge \"%s\";\n" %
+                str(Path("../AAA_ILT_Internal.stl").resolve()))
         f.close()
         subprocess.call([os.environ["GMSH_PATH"],
                          Path(os.environ["SCRIPTS_PATH"], "Mesh_surf.geo"),
