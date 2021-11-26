@@ -181,7 +181,9 @@ if AAA_ANALYSE_VAR_THICKNESS:
 
     os.chdir("6_Mesh_Var_Thickness")
     if not Path("AAA_Wall_External.stl").exists():
-        runpy.run_path("AAA_CreateVarThicknessVolumes.py")
+        path_create_var_thick_vol = Path(
+            os.environ["SCRIPTS_PATH"], "AAA_CreateVarThicknessVolumes.py")
+        runpy.run_path(path_create_var_thick_vol)
 
         if not Path("AAA_Wall_External.stl").exists():
             raise Exception(
