@@ -156,11 +156,13 @@ if AAA_ANALYSE_CONST_THICKNESS:
 
     os.chdir("5_Mesh_Const_Thickness")
     if not Path("AAA_Wall_External.stl").exists():
-        runpy.run_path("AAA_CreateConstThicknessVolumes.py")
+        path_create_const_thick_vol = Path(
+            os.environ["SCRIPTS_PATH"], "AAA_CreateConstThicknessVolumes.py")
+        runpy.run_path(path_create_const_thick_vol)
 
         if not Path("AAA_Wall_External.stl").exists():
             raise Exception(
-                "Error creating constant thickness volumes. Check script AAA_CreateConstThicknessVolumes.bat!")
+                "Error creating constant thickness volumes. Check script AAA_CreateConstThicknessVolumes.py!")
         print("Done!")
     else:
         print("Skipped! - 5_Mesh_Const_Thickness/AAA_Wall_External.stl already exists")
