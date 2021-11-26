@@ -5,7 +5,7 @@
 from paraview.simple import *
 
 # create a new 'XML PolyData Reader'
-ply_file = PLYReader(FileName=['simplification.ply'])
+ply_file = PLYReader(FileNames=['simplification.ply'])
 
 # save data
 SaveData('AAA_ILT_Internal.stl', proxy=ply_file)
