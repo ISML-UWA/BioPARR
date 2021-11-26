@@ -145,7 +145,7 @@ if AAA_REMOVE_INTERMEDIATE_RESULTS:
     to_del = glob.glob("./*.stl")
     to_del = to_del + glob.glob("./*0.vtp")
     to_del = to_del + glob.glob("./*.ply")
-    
+
     for file in to_del:
         os.remove(file)
 
@@ -171,7 +171,7 @@ if AAA_ANALYSE_CONST_THICKNESS:
 if AAA_REMOVE_INTERMEDIATE_RESULTS:
     os.chdir("5_Mesh_Const_Thickness")
     os.remove("AAA.msh")
-    os.remove("AAA_merged.vtp")
+    os.remove("AAA_Merged.vtp")
     os.remove("AAA_Wall_Cap.stl")
     os.remove("AAA_ILT_Cap.stl")
     os.chdir("..")
@@ -194,7 +194,7 @@ if AAA_ANALYSE_VAR_THICKNESS:
 if AAA_REMOVE_INTERMEDIATE_RESULTS:
     os.chdir("6_Mesh_Var_Thickness")
     os.remove("AAA.msh")
-    os.remove("AAA_merged.vtp")
+    os.remove("AAA_Merged.vtp")
     os.remove("AAA_Wall_Cap.stl")
     os.remove("AAA_ILT_Cap.stl")
     os.chdir("..")
