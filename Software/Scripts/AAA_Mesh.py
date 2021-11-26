@@ -47,23 +47,25 @@ if Path("../AAA_ILT_Internal.stl").exists():
                 if not Path("simplification.ply").exists():
                     raise Exception(
                         "Error meshing ../AAA_ILT_Internal.stl using ACVDQ!")
-        if not Path("AAA_ILT_Internal.stl").exists():
-            subprocess.call([os.environ["PARAVIEW_PATH"],
-                             Path(os.environ["SCRIPTS_PATH"],
-                                  "AAA_convert_PLY_to_STL.py"),
-                             "10000 0.2 -s 20 -d 0"])
-            if not Path("AAA_ILT_Internal.stl").exists():
-                raise Exception(
-                    "Error converting simplification.ply using ParaView!")
 
-            f = open("Surf.geo", "w")
-            f.write("Merge \"%s\";\n" % Path("../AAA_ILT_External.stl"))
-            f.close()
-            subprocess.call([os.environ["GMSH_PATH"],
-                             Path(os.environ["SCRIPTS_PATH"], "Mesh_surf.geo"),
-                             "-2", "-o", "ILTSurf.stl", "-bin", "2>error.txt"])
-            if not Path("ILTSURF.stl").exists():
-                raise Exception("Error meshing the ILT surface!")
+            if not Path("AAA_ILT_Internal.stl").exists():
+                subprocess.call([os.environ["PARAVIEW_PATH"],
+                                 Path(os.environ["SCRIPTS_PATH"],
+                                      "AAA_convert_PLY_to_STL.py"),
+                                 "10000 0.2 -s 20 -d 0"])
+                if not Path("AAA_ILT_Internal.stl").exists():
+                    raise Exception(
+                        "Error converting simplification.ply using ParaView!")
+
+                f = open("Surf.geo", "w")
+                f.write("Merge \"%s\";\n" %
+                        str(Path("../AAA_ILT_Internal.stl").resolve()))
+                f.close()
+
+                subprocess.call([os.environ["GMSH_PATH"], Path("Mesh_surf.geo"),
+                                 "-2", "-o", "ILTSurf.stl", "-bin", "2>error.txt"])
+                if not Path("ILTSurf.stl").exists():
+                    raise Exception("Error meshing the ILT surface!")
 
 runpy.run_path(Path(os.environ["SCRIPTS_PATH"],
-                    "AAA_mesh_volumes.py"))
+                    "AAA_Mesh_Volumes.py"))
