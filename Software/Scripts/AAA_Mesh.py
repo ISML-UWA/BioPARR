@@ -18,8 +18,7 @@ if Path("../AAA_Wall_External.stl").exists():
         f.write("Merge \"%s\";\n" %
                 str(Path("../AAA_Wall_External.stl").resolve()))
         f.close()
-        subprocess.call([os.environ["GMSH_PATH"],
-                         Path(os.environ["SCRIPTS_PATH"], "Mesh_surf.geo"),
+        subprocess.call([os.environ["GMSH_PATH"], Path("Mesh_surf.geo"),
                          "-2", "-o", "extSurf.stl", "-bin", "2>error.txt"])
         if not Path("extSurf.stl").exists():
             raise Exception("Error meshing the external AAA surface!")
@@ -30,16 +29,14 @@ if Path("../AAA_Wall_Internal.stl").exists():
         f.write("Merge \"%s\";\n" %
                 str(Path("../AAA_ILT_Internal.stl").resolve()))
         f.close()
-        subprocess.call([os.environ["GMSH_PATH"],
-                         Path(os.environ["SCRIPTS_PATH"], "Mesh_surf.geo"),
+        subprocess.call([os.environ["GMSH_PATH"], Path("Mesh_surf.geo"),
                          "-2", "-o", "intSurf.stl", "-bin", "2>error.txt"])
         if not Path("intSurf.stl").exists():
             raise Exception("Error meshing the internal AAA surface!")
 
 if Path("../AAA_ILT_Internal.stl").exists():
     if not Path("ILTSurf.stl").exists():
-        subprocess.call([os.environ["GMSH_PATH"],
-                         Path(os.environ["SCRIPTS_PATH"], "Mesh_surf.geo"),
+        subprocess.call([os.environ["GMSH_PATH"], Path("Mesh_surf.geo"),
                          "-2", "-o", "ILTSurf.stl", "-bin", "2>error.txt"])
         if not Path("ILTSurf.stl").exists():
             if not Path("simplification.ply").exists():

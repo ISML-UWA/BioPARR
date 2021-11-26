@@ -218,8 +218,12 @@ print(AAA_ELEMENT_CONFIG)
 
 for dir in AAA_MESH_DIRS:
     print("Meshing Volumes in %s ..." % dir)
-    if not Path("./%s/Mesh/Wall.vtk" % dir).exists:
+    if not Path("%s/Mesh/Wall.vtk" % dir).exists():
         os.chdir(Path("%s/Mesh" % dir))
+        shutil.copy(Path(os.environ["SCRIPTS_PATH"], "Mesh_surf.geo"),
+                    Path("."))
+        shutil.copy(Path(os.environ["SCRIPTS_PATH"], "Mesh_wall.geo"),
+                    Path("."))
         print("Meshing Volumes ...")
         runpy.run_path(Path(os.environ["SCRIPTS_PATH"], "AAA_Mesh.py"))
         os.chdir(Path("../.."))
