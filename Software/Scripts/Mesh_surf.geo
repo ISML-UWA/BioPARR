@@ -33,7 +33,7 @@ Mesh.RandomFactor = 1e-10;
 Mesh.Smoothing = 10;
 
 Field[1] = Structured;
-Field[1].FileName = "..\size.bin";
+Field[1].FileName = "../size.bin";
 Field[1].TextFormat = 0;
 
 Background Field = 1;
