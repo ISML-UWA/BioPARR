@@ -246,22 +246,31 @@ for dir in AAA_MESH_DIRS:
 
     print("Creating Abaqus input files in %s/Mesh ..." % dir)
 
-    if not Path("%s/Mesh/Wall.inp").exists():
-        subprocess.call([os.environ["AAA_GENERATE_ABAQUS_FILE_PATH"],
-                         Path("%s/Mesh/Wall.vtk" % dir),
-                         Path("%s/Mesh/WallSurface.vtp" % dir), "-o",
-                         Path("%s/Mesh/Wall.inp" % dir),
-                         AAA_ELEMENT_CONFIG])
-        if not Path("%s/Mesh/Wall.inp").exists():
+    if not Path("%s/Mesh/Wall.inp" % dir).exists():
+        subprocess.run([os.environ["AAA_GENERATE_ABAQUS_FILE_PATH"],
+                        Path("%s/Mesh/Wall.vtk" % dir),
+                        Path("%s/WallSurface.vtp" % dir), "-o",
+                        Path("%s/Mesh/Wall.inp" % dir)])
+        # subprocess.run([os.environ["AAA_GENERATE_ABAQUS_FILE_PATH"],
+        #                 Path("%s/Mesh/Wall.vtk" % dir),
+        #                 Path("%s/WallSurface.vtp" % dir), "-o",
+        #                 Path("%s/Mesh/Wall.inp" % dir),
+        #                 AAA_ELEMENT_CONFIG])
+
+        if not Path("%s/Mesh/Wall.inp" % dir).exists():
             raise Exception("Error creating %s/Mesh/Wall.inp!" % dir)
 
         if Path("%s/Mesh/ILT.vtk" % dir).exists():
             subprocess.call([os.environ["AAA_GENERATE_ABAQUS_FILE_PATH"],
                              Path("%s/Mesh/ILT.vtk" % dir),
-                             Path("%s/Mesh/ILTSurface.vtp" % dir), "-o",
-                             Path("%s/Mesh/ILT.inp" % dir),
-                             AAA_ELEMENT_CONFIG])
-            if not Path("%s/Mesh/ILT.inp").exists():
+                             Path("%s/ILTSurface.vtp" % dir), "-o",
+                             Path("%s/Mesh/ILT.inp" % dir)])
+            # subprocess.call([os.environ["AAA_GENERATE_ABAQUS_FILE_PATH"],
+            #                  Path("%s/Mesh/ILT.vtk" % dir),
+            #                  Path("%s/ILTSurface.vtp" % dir), "-o",
+            #                  Path("%s/Mesh/ILT.inp" % dir),
+            #                  AAA_ELEMENT_CONFIG])
+            if not Path("%s/Mesh/ILT.inp" % dir).exists():
                 raise Exception("Error creating %s/Mesh/ITL.inp!" % dir)
     else:
         print("Skipped! - %s/Mesh/Wall.inp already exists" % dir)
