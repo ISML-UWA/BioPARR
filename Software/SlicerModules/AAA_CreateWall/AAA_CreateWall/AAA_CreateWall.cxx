@@ -940,7 +940,7 @@ int main( int argc, char * argv[] )
 	extPoints->GetCellData()->SetActiveScalars("MeasurementArea");
 	extPoints->GetCellData()->SetScalars(aThicknessMeasurementArea);
 
-	fileName = dirOutputs + "\\AAA_Exterior.vtp";
+	fileName = dirOutputs + "/AAA_Exterior.vtp";
 	iWriteOutput(fileName.c_str(), extPoints);
 
 	std::cout << "Creating interior AAA surface ..." << std::endl;
@@ -1166,7 +1166,7 @@ int main( int argc, char * argv[] )
 	// Create output file with size info for GMSH 
 	// ------------------------------------------- //
 	std::cout << "Creating element size file for meshing ..." << std::endl;
-	fileName = dirOutputs + "\\size.bin";
+	fileName = dirOutputs + "/size.bin";
 	FILE *pf = fopen(fileName.c_str(), "wb");
 	if (pf == NULL)
 	{
@@ -1485,7 +1485,7 @@ int main( int argc, char * argv[] )
 	vtkSmartPointer<vtkPolyData> pAAAMerged = vtkSmartPointer<vtkPolyData>::New();
 	pAAAMerged->DeepCopy(smoother->GetOutput());
 
-	fileName = dirOutputs + "\\AAA_Merged.vtp";
+	fileName = dirOutputs + "/AAA_Merged.vtp";
 	iWriteOutput(fileName.c_str(), pAAAMerged);
 
 	// ------------------------------------------- //
@@ -1502,7 +1502,7 @@ int main( int argc, char * argv[] )
 	vtkSmartPointer<vtkPolyData> pWallCap = vtkSmartPointer<vtkPolyData>::New();
 	pWallCap->DeepCopy(geometryFilter->GetOutput());
 
-	fileName = dirOutputs + "\\" + WALL_CAP_NAME + ".stl";
+	fileName = dirOutputs + "/" + WALL_CAP_NAME + ".stl";
 	vtkSmartPointer<vtkSTLWriter> pdSTLWriter = vtkSmartPointer<vtkSTLWriter>::New();
 	pdSTLWriter->SetFileName(fileName.c_str());
 	pdSTLWriter->SetFileTypeToBinary();
@@ -1521,7 +1521,7 @@ int main( int argc, char * argv[] )
 	vtkSmartPointer<vtkPolyData> pWallExtSurf = vtkSmartPointer<vtkPolyData>::New();
 	pWallExtSurf->DeepCopy(geometryFilter->GetOutput());
 
-	fileName = dirOutputs + "\\" + EXT_WALL_SURF_NAME + ".stl";
+	fileName = dirOutputs + "/" + EXT_WALL_SURF_NAME + ".stl";
 	pdSTLWriter->SetFileName(fileName.c_str());
 	pdSTLWriter->SetInputData(pWallExtSurf);
 	if (!pdSTLWriter->Write())
@@ -1538,7 +1538,7 @@ int main( int argc, char * argv[] )
 	vtkSmartPointer<vtkPolyData> pWallIntSurf = vtkSmartPointer<vtkPolyData>::New();
 	pWallIntSurf->DeepCopy(geometryFilter->GetOutput());
 
-	fileName = dirOutputs + "\\" + INT_WALL_SURF_NAME + ".stl";
+	fileName = dirOutputs + "/" + INT_WALL_SURF_NAME + ".stl";
 	pdSTLWriter->SetFileName(fileName.c_str());
 	pdSTLWriter->SetInputData(pWallIntSurf);
 	if (!pdSTLWriter->Write())
@@ -1558,7 +1558,7 @@ int main( int argc, char * argv[] )
 		geometryFilter->Update();
 
 		pILTCap->DeepCopy(geometryFilter->GetOutput());
-		fileName = dirOutputs + "\\" + ILT_CAP_NAME + ".stl";
+		fileName = dirOutputs + "/" + ILT_CAP_NAME + ".stl";
 		pdSTLWriter->SetFileName(fileName.c_str());
 		pdSTLWriter->SetInputData(pILTCap);
 		if (!pdSTLWriter->Write())
@@ -1572,8 +1572,8 @@ int main( int argc, char * argv[] )
 		selector->Update();
 		geometryFilter->Update();
 		pILTIntSurface->DeepCopy(geometryFilter->GetOutput());
-		
-		fileName = dirOutputs + "\\" + INT_ILT_SURF_NAME + ".stl";
+
+		fileName = dirOutputs + "/" + INT_ILT_SURF_NAME + ".stl";
 		pdSTLWriter->SetFileName(fileName.c_str());
 		pdSTLWriter->SetInputData(pILTIntSurface);
 		if (!pdSTLWriter->Write())
@@ -1642,7 +1642,7 @@ int main( int argc, char * argv[] )
 	locatorAAANodes->SetDataSet(cleaner->GetOutput());
 	locatorAAANodes->BuildLocator();
 
-	fileName = dirOutputs + "\\AAA.msh";
+	fileName = dirOutputs + "/AAA.msh";
 	pf = pfCreateMSHFile(fileName.c_str(), cleaner->GetOutput()->GetPoints());
 	fprintf(pf, "$Elements\n");
 	vtkIdType numMeshElements = pWallExtSurf->GetNumberOfPolys() + pWallCap->GetNumberOfPolys() +
