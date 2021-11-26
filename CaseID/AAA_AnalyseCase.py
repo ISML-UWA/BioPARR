@@ -80,7 +80,7 @@ if not Path("CT_wall.vtp").exists():
 else:
     print("Skipped! - 1_Segmentation_CT/CT_wall.vtp already exists")
 
-if AAA_REMOVE_INTERMEDIATE_RESULTS:
+if AAA_REMOVE_INTERMEDIATE_RESULTS and Path("CT_Wall_label.nrrd").exists():
     os.remove("CT_Wall_label.nrrd")
 
 os.chdir("..")
