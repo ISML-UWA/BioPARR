@@ -233,13 +233,13 @@ for dir in AAA_MESH_DIRS:
     else:
         print("Skipped! - %s/Mesh/Wall.vtk already exists" % dir)
 
-    to_del = Path("%s/Mesh" % dir).glob("*.geo")
-    to_del.append(Path("%s/Mesh" % dir).glob("*.msh"))
-    to_del.append(Path("%s/Mesh" % dir).glob("*.pos"))
-    to_del.append(Path("%s/Mesh" % dir).glob("*.ply"))
+    to_del = glob.glob("%s/Mesh/*.geo" % dir)
+    to_del = to_del + glob.glob("%s/Mesh/*.msh" % dir)
+    to_del = to_del + glob.glob("%s/Mesh/*.pos" % dir)
+    to_del = to_del + glob.glob("%s/Mesh/*.ply" % dir)
 
     if AAA_REMOVE_INTERMEDIATE_RESULTS and Path("%s/Mesh/Wall.vtk" % dir).exists():
-        to_del.append(Path("%s/Mesh" % dir).glob("*.stl"))
+        to_del = to_del + glob.glob("%s/Mesh/*.stl" % dir)
 
     for file in to_del:
         os.remove(file)
