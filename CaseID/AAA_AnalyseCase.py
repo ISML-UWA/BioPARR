@@ -255,7 +255,7 @@ for dir in AAA_MESH_DIRS:
         if not Path("%s/Mesh/Wall.inp").exists():
             raise Exception("Error creating %s/Mesh/Wall.inp!" % dir)
 
-        if Path("%s/Mesh/ILT.vtk").exists():
+        if Path("%s/Mesh/ILT.vtk" % dir).exists():
             subprocess.call([os.environ["AAA_GENERATE_ABAQUS_FILE_PATH"],
                              Path("%s/Mesh/ILT.vtk" % dir),
                              Path("%s/Mesh/ILTSurface.vtp" % dir), "-o",
