@@ -284,7 +284,8 @@ if AAA_ANALYSE_VAR_THICKNESS:
 for dir in AAA_ABAQUS_DIRS:
     print("Abaqus analysis in %s" % dir)
     os.chdir(dir)
-    subprocess.call([Path(os.environ["SCRIPTS_PATH"], "AnalyseAllCases.py")])
+    runpy.run_path(
+        Path(os.environ["SCRIPTS_PATH"], "AnalyseAllCases.py"))
     os.chdir("..")
     print("Done!")
 
