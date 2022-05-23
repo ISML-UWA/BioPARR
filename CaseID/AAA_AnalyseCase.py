@@ -115,7 +115,9 @@ if not Path("MRI_aligned_to_CT.nrrd").exists():
 else:
     print("Skipped! - 2_Segmentation_MRI/MRI_aligned_to_CT.nrrd already exists")
 
-if AAA_REMOVE_INTERMEDIATE_RESULTS:
+if ( AAA_REMOVE_INTERMEDIATE_RESULTS and
+        Path("registerMRI2CT.h5").exists() and
+        Path("registerMRI2CT_Inverse.h5").exists()):
     os.remove("registerMRI2CT.h5")
     os.remove("registerMRI2CT_Inverse.h5")
 
