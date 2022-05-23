@@ -17,7 +17,7 @@ These programs have been shipped with the BioPARR binaries but your local versio
 1.  Install the required dependencies.
 1.  Clone the [BioPARR GitHub repository](https://github.com/ISML-UWA/BioPARR) or download the [precompiled binaries](https://bioparr.mech.uwa.edu.au/download.php?fid=19) for Windows.
 1.  If using the source code, compile the binaries by following the [compilation instructions](https://isml-uwa.github.io/BioPARR#compilation).
-1.  Edit the `AAA_Configure` file and set up the paths to 3D Slicer and Paraview based on your installation.
+1.  Edit the `AAA_Configure.py` file and set up the paths to 3D Slicer and Paraview based on your installation.
 
 ## Compilation
 
