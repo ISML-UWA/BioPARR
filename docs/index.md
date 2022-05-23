@@ -93,20 +93,20 @@ The 3D Slicer modules used for analysis are found in `./Software/SlicerModules`.
 1.  **Segmentation**
     1.  **Lumen**
 
-        Open `./1_Segmentation_CT/CT_cropped.nrrd` in 3D Slicer. Go into `Volumes` and select the `Window Level` editor preset CT-abdomen. Go into Editor and use the Threshold effect to create a rough segmentation of the blood channel. Use `SaveIslandEffect` to eliminate unconnected regions. Use `PaintEffect` to make manual corrections (eliminate small veins, calcification the may be in contact with the blood channel, etc). The changes can be checked by using `ModelMaker` to create a surface representation of your segmentation.
+        Open `./1_Segmentation_CT/CT_cropped.nrrd` in 3D Slicer. Go into `Volumes` and under `Window/Level` select `CT-abdomen`. Go into `Segment Editor` and use the `Threshold` effect to create a rough segmentation of the blood channel. Use `Islands` to eliminate unconnected regions. Use `Paint` to make manual corrections (eliminate small veins, calcification the may be in contact with the blood channel, etc). The changes can be checked by using `Surface Models` -> `ModelMaker` to create a surface representation of your segmentation.
 
         Once you are satisfied with your manual corrections use `Surface Models`->`Label Map Smoothing` with a Gaussian smoothing parameter `Sigma` of 1 (set both input and output volumes as `CT_cropped-label`) to smooth out the segmentation. Save result to  `./1_Segmentation_CT/CT_blood_label.nrrd`.
 
         **Note:** Make sure the segmentation extends the entire height of the cropped CT image by checking the first and last red slices in 3D Slicer before saving the segmentation results.
     1. **AAA**
 
-        Use `PaintEffect`to extend the blood channel label to cover the entire AAA. Use a different label to mark the region around the AAA. Use `FastGrowCutEffect` to segment the AAA. Once satisfied with the result stop `FastGrowCutEffect`, use `ChangeLabelEffect` to change the label used to mark the region around the AAA to background colour and use `PaintEffect` to make manual corrections.
+        Use `Paint`to extend the blood channel label to cover the entire AAA. Use a different label to mark the region around the AAA. Use `FastGrowCutEffect` to segment the AAA. Once satisfied with the result stop `FastGrowCutEffect`, use `ChangeLabelEffect` to change the label used to mark the region around the AAA to background colour and use `Paint` to make manual corrections.
 
         Once you are satisfied with your manual corrections use `Surface Models`->`Label Map Smoothing` with a Gaussian smoothing parameter `Sigma` of 1 (set both input and output volumes as `CT_cropped-label`) to smooth out the segmentation. Save result to  `./1_Segmentation_CT/CT_AAA_label.nrrd`.
 
         **Note:** Make sure the segmentation extends the entire height of the cropped CT image by checking the first and last red slices in 3D Slicer before saving the segmentation results.
 
-        **Tip:** Use a sphere in `PaintEffect` to mark regions in several slices at once. Take care not to mark incorrect regions in the slices you don't see.
+        **Tip:** Use a sphere in `Paint` to mark regions in several slices at once. Take care not to mark incorrect regions in the slices you don't see.
     1.  **AAA from MRI**
 
         Use the same procedure as above to segment the AAA from the MRI. The lumen does not need to be segmented separately in this case. Save results to `./2_Segmentation_MRI/MRI_AAA_label.nrrd`.
