@@ -11,9 +11,9 @@ from pathlib import Path
 print("Configuring paths to all tools ...")
 
 os.environ["SLICER_PATH"] = str(Path(
-    "/home/gerry/Applications/Slicer-SuperBuild-Debug/Slicer-build/Slicer"))
+    "~/Applications/Slicer/Slicer"))
 os.environ["PARAVIEW_PATH"] = str(Path(
-    "/home/gerry/Applications/ParaView/paraview"))
+    "~/Applications/ParaView/bin/pvpython"))
 
 os.environ["AAA_CREATE_WALL_PATH"] = str(Path(
     "./Software/SlicerModules/AAA_CreateWall").resolve())
